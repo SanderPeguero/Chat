@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "env-cmd vite",
-    "build": "env-cmd vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
