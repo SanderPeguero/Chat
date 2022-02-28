@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 
 import axios from 'axios'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ChatEngine } from 'react-chat-engine'
 
 import { useAuth } from '../contexts/AuthContext'
@@ -11,11 +11,11 @@ export default function Chats(){
     const didMountRef = useRef(false)
     const [loading, setLoading] = useState(true)
     const { user } = useAuth()
-    const history = useHistory()
+    const history = useNavigate()
 
     async function handleLogout(){
         await auth.signOut()
-        history.push("/")
+        history("/")
     }
 
     const getFile = async (url) => {
@@ -29,7 +29,7 @@ export default function Chats(){
             didMountRef.current = true
 
             if(!user || user == null) {
-                history.push("/")
+                history("/")
                 return
             }
 

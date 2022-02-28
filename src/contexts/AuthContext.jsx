@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react"
-import { useHistory } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 import { auth } from "../firebase"
 
@@ -10,13 +10,13 @@ export function useAuth() { return useContext(AuthContext) }
 export function AuthProvider({ children }){
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState()
-    const history = useHistory()
+    const history = useNavigate()
 
     useEffect(() => {
         auth.onAuthStateChanged(user => {
             setUser(user)
             setLoading(false)
-            history.push('/chat')
+            history('/chat')
         })
     }, [user, history])
 

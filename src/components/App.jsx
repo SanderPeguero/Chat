@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import { AuthProvider } from '../contexts/AuthContext'
 
@@ -11,10 +11,10 @@ function App() {
     <div>
       <Router>
         <AuthProvider>
-          <Switch>
-            <Route path='/chat' component={Chats}/>
-            <Route path='/' component={Login}/>
-          </Switch>
+          <Routes>
+            <Route path='/chat' element={<Chats/>}></Route>
+            <Route path='/' element={<Login/>}></Route>
+          </Routes>
         </AuthProvider>
       </Router>
     </div>
