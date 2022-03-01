@@ -4,7 +4,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { ChatEngine } from 'react-chat-engine'
 
-import { useAuth } from '../contexts/AuthContext'
+import { useAuth } from '../contexts/AuthProvider'
 import { auth } from  '../firebase'
 
 export default function Chats(){
